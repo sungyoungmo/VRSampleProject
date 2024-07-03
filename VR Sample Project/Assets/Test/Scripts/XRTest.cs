@@ -7,7 +7,7 @@ public class XRTest : MonoBehaviour
 {
     public void Print(string message) => print(message);
 
-    
+    Color origin;
 
     public void FirstSelectEnterEvent(SelectEnterEventArgs args)
     {
@@ -19,7 +19,7 @@ public class XRTest : MonoBehaviour
         }
         else
         {
-            print($"{args.interactableObject.transform.name}");
+            print($"{args.interactableObject.transform.name} FirstSelect");
         }
 
         
@@ -27,13 +27,14 @@ public class XRTest : MonoBehaviour
 
     }
     public void LastSelectExitEvent(SelectExitEventArgs args)
-    {
+    {   
         if (args.interactableObject.transform.parent != null)
         {
             print($"{args.interactableObject.transform.name}" + $"는 {args.interactableObject.transform.parent.name}에게 마지막으로 선택해제됨");
         }
         else
         {
+            print($"{args.interactableObject.transform.name} LastSelect");
             
         }
 
@@ -42,35 +43,36 @@ public class XRTest : MonoBehaviour
 
     public void SelectEnterEvent(SelectEnterEventArgs args)
     {
+        //origin = args.interactorObject.transform.GetComponent<Renderer>().material.color;
+
         if (args.interactableObject.transform.parent != null)
         {
             print($"{args.interactableObject.transform.name}" + $"는 {args.interactableObject.transform.parent.name}에게 선택됨");
         }
         else
         {
-            print($"{args.interactableObject.transform.name}");
+            print($"{args.interactableObject.transform.name} SelectEnter");
         }
             
     }
 
     public void SelectExitEvent(SelectExitEventArgs args)
     {
+//args.interactorObject.transform.GetComponent<Renderer>().material.color = origin;
+
         if (args.interactableObject.transform.parent != null)
         {
             print($"{args.interactableObject.transform.name}" + $"는 {args.interactableObject.transform.parent.name}에게 선택해제됨");
         }
         else
         {
-            print($"{args.interactableObject.transform.name}");
+            print($"{args.interactableObject.transform.name} SelectExit");
         }
             
     }
 
     float times = 0;
-    private void Update()
-    {
-        times += Time.deltaTime;
-    }
+    
 
     public void ActivateEvent(BaseInteractionEventArgs args)
     {
@@ -97,12 +99,12 @@ public class XRTest : MonoBehaviour
         {
             times += 2.0f * Time.deltaTime;
 
-            args.interactableObject.transform.GetComponent<Renderer>().material.color = new Color(Mathf.Lerp(0, 1, times), 1, 1, 1);
+            args.interactableObject.transform.GetComponent<Renderer>().material.color = new Color(Mathf.Lerp(0, 1, times), 0, 0, 1);
             print(times);
 
             yield return new WaitForSeconds(0.1f);
 
-            if (times <= 1)
+            if (times >= 1)
                 break;
         }
 

@@ -20,6 +20,7 @@ MonoBehaviour:
   - Water
   - UI
   - Controller
+  - NoSocketInteractorable
   - 
   - 
   - 
@@ -43,5 +44,4 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - 
+  - Teleport
