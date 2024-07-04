@@ -14,10 +14,10 @@ public class XRCustomController : MonoBehaviour
     public ActionBasedController targetCont;
     private InputActionReference activateRef;   // 검지 트리거 버튼
     private InputActionReference selectRef;     // 중지 범퍼 버튼
+    public InputActionReference buttonA;
     private InputActionReference dirrotateRef;
 
     private ControllerAnimation contAnim;
-
 
     private IEnumerator Start()
     {
@@ -27,18 +27,18 @@ public class XRCustomController : MonoBehaviour
         activateRef = targetCont.activateAction.reference;
         selectRef = targetCont.selectAction.reference;
         dirrotateRef = targetCont.directionalAnchorRotationAction.reference;
+        
 
         activateRef.action.performed += delegate (InputAction.CallbackContext context)
         {
             contAnim.TriggerActivate(context.performed);
-            print(context);
+            
         };
 
         activateRef.action.canceled += delegate (InputAction.CallbackContext context)
         {
             contAnim.TriggerActivate(context.performed);
         };
-
 
 
         dirrotateRef.action.performed += delegate (InputAction.CallbackContext context)
