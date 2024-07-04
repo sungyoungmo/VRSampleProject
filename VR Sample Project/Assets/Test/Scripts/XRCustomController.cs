@@ -31,6 +31,7 @@ public class XRCustomController : MonoBehaviour
         activateRef.action.performed += delegate (InputAction.CallbackContext context)
         {
             contAnim.TriggerActivate(context.performed);
+            print(context);
         };
 
         activateRef.action.canceled += delegate (InputAction.CallbackContext context)
@@ -43,25 +44,14 @@ public class XRCustomController : MonoBehaviour
         dirrotateRef.action.performed += delegate (InputAction.CallbackContext context)
         {
             contAnim.RotateActivate(context.ReadValue<Vector2>(),context.performed);
-            print(context.ReadValue<Vector2>());
         };
 
         dirrotateRef.action.canceled += delegate (InputAction.CallbackContext context)
         {
             contAnim.RotateActivate(context.ReadValue<Vector2>(), context.performed);
-            print(context.ReadValue<Vector2>());
         };
-
 
         selectRef.action.performed += contAnim.BumperActivate;
         selectRef.action.canceled += contAnim.BumperActivate;
-    }
-    private Vector3 moveDir;
-
-    private void OnMove(InputValue inputValue)
-    {
-        Vector2 inputVector = inputValue.Get<Vector2>();
-
-        moveDir = new Vector3(inputVector.x, 0, inputVector.y);
     }
 }

@@ -48,6 +48,8 @@ MonoBehaviour:
   trigger: {fileID: 8686126504164835072}
   bumper: {fileID: 7373521755019716620}
   thumbStick: {fileID: 1664519750005679265}
+  button_A: {fileID: 5090741342618955081}
+  button_B: {fileID: 4710359067376042450}
 --- !u!1001 &2406844297389871157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,6 +110,16 @@ PrefabInstance:
 --- !u!4 &1664519750005679265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3926958306776380564, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+  m_PrefabInstance: {fileID: 2406844297389871157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4710359067376042450 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6933391405153014247, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+  m_PrefabInstance: {fileID: 2406844297389871157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5090741342618955081 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7476862024109768060, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
   m_PrefabInstance: {fileID: 2406844297389871157}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6921738913078702613 stripped

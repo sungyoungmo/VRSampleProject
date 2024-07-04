@@ -8,6 +8,8 @@ public class ControllerAnimation : MonoBehaviour
     public Transform trigger;
     public Transform bumper;
     public Transform thumbStick;
+    public Transform button_A;
+    public Transform button_B;
 
     public void TriggerActivate(bool isPush)
     {
@@ -23,11 +25,10 @@ public class ControllerAnimation : MonoBehaviour
     {
         if (isPush)
         {
-            thumbStick.transform.Rotate(rotValue.y * -30, 0, rotValue.x * 30);
+            thumbStick.transform.localEulerAngles = new Vector3(rotValue.y * -30, 0, rotValue.x * 30);
         }
         else
         {
-            //thumbStick.transform.Rotate(rotValue.x * 10, 0,rotValue.y * 10);
             thumbStick.transform.localEulerAngles = new Vector3(0,0,0);
         }
 
